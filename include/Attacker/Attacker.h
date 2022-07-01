@@ -42,6 +42,8 @@ protected:
   int32_t lastProbe;
   uint64_t uniqueVictimLines;
   int32_t i;
+  
+  double numberOfProbes;
 
   uint64_t ABDiff;
 
@@ -127,6 +129,7 @@ public:
     correctEvictions = 0;
     incorrectEvictions = 0;
     selfEvictions = 0;
+    numberOfProbes = 0;
   };
   int32_t getMemAccesses() { return memAccesses; };
   int32_t getVictimCalls() { return victimCalls; };
@@ -138,20 +141,20 @@ public:
 
   double getSelfEvictionRate()
   {
-    return selfEvictionRate / double(((i + warmupPeriod) * 2));
+    return selfEvictionRate / numberOfProbes;
   };
   double getSelfEvictions()
   {
-    return selfEvictions / double(((i + warmupPeriod) * 2));
+    return selfEvictions / numberOfProbes;
   };
   uint64_t getUniqueVictimLines()
   {
-    return uniqueVictimLines / ((i + warmupPeriod) * 2);
+    return uniqueVictimLines / numberOfProbes;
   };
   double getABDiff() { return double(ABDiff); }
   uint64_t getRealEvictions()
   {
-    return double(arealsum + brealsum) / double(((i + warmupPeriod) * 2));
+    return double(arealsum + brealsum) / numberOfProbes;
   };
   bool getSuccess() { return success; };
 

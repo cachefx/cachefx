@@ -52,6 +52,7 @@ void EvictionAttacker::prime()
 
 int32_t EvictionAttacker::probe()
 {
+  numberOfProbes += 1.0;
   // If the "probe" is done from the victim side (i.e. measuring
   // the actual number of attacker's line evicted, free from self-eviction)
   // then return as the result is ignored.

@@ -7,8 +7,8 @@ QMAKE:=$(word 1,$(wildcard /usr/lib/qt5/bin/qmake /usr/lib64/qt5/bin/qmake $(she
 
 export ROOTDIR = $(CURDIR)
 export INCLDIR = $(ROOTDIR)/include
-export CPPFLAGS=$(MARCH) -O2 -std=c++14 -I$(ROOTDIR)/pugixml/src -I$(INCLDIR)
-export LDFLAGS=-O2 $(MARCH)
+export CPPFLAGS=$(MARCH) -O2 -std=c++14 -I$(ROOTDIR)/pugixml/src -I$(INCLDIR) -static
+export LDFLAGS=-O2 $(MARCH) -static
 
 COMPONENTS = \
 	Attacker \

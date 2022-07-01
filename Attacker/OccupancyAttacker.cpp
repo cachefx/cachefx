@@ -28,6 +28,7 @@ void OccupancyAttacker::prime()
 
 int32_t OccupancyAttacker::probe()
 {
+  numberOfProbes += 1.0;
   int32_t result = 0;
   for (int32_t i = CACHE_LINE_SIZE; i <= cacheSize; i += CACHE_LINE_SIZE)
   {

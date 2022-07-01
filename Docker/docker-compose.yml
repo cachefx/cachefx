@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+    cachefx:
+        build: 
+            context: ../
+            dockerfile: Docker/Dockerfile
+        volumes: 
+        - ./results/:/workdir/results:rw
+        - ./sample_configs_small/:/workdir/sample_configs_small:ro
